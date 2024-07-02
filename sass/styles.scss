@@ -63,21 +63,64 @@ $seconday-color: #9356DC;
     }
 }
 
-/*.fadinleft {
-    animation: fadeInLeft 2s ease-in-out;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
-.fadinright {
-    animation: fadeInRight 2s ease-in-out;
-} */
+@keyframes fadeInBottomLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInBottomRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 .fadinbottom {
     animation: fade-in-bottom 2s ease-out;
-} 
+}
 
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+.fade-in-bottom-left {
+    opacity: 0;
+    animation: fadeInBottomLeft 2s forwards;
+}
+
+
+.fade-in-bottom-right {
+    opacity: 0;
+    animation: fadeInBottomRight 2s 0.5s forwards;
+}
+
+.fade-in-bottom-left2 {
+    opacity: 0;
+    animation: fadeInBottomLeft 2s 1s forwards;
+}
+
 
 body {
     margin: 0;
@@ -388,20 +431,20 @@ body {
                     width: 80%;
                     padding: 0.8em;
 
-                    
 
-                        h3 {
-                            
-                            margin-bottom: 5px;
-                            margin-top: 10px;
-                           
-                        }
-                    
+
+                    h3 {
+
+                        margin-bottom: 5px;
+                        margin-top: 10px;
+
+                    }
+
 
                     p {
                         margin: 0;
                         margin-top: 10px;
-                        
+
                     }
                 }
 
@@ -604,8 +647,8 @@ footer {
                 background-color: #fff;
                 border-radius: 16px;
                 margin-bottom: 1em;
-                
-               
+
+
 
                 &:hover {
                     .text-cardmenu {
@@ -617,7 +660,7 @@ footer {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        animation: fadeInRight 0.3s ease-in-out;
+                        animation: fadeIn 0.3s ease-in-out;
                         background-color: #99E2D0;
                         border-top-right-radius: 16px;
                         border-bottom-right-radius: 16px;
@@ -628,36 +671,47 @@ footer {
                 }
 
                 .text-cardmenu {
-                    flex-grow: 1;
-                    overflow: hidden;
+                    width: 100%;
+                    
+
                     h4 {
                         margin: 0;
                         margin-bottom: 5px;
-                        display: flex;
                         margin-top: 1em;
                         margin-left: 1em;
                     }
-    
-                    p {
-                        margin: 0;
+
+                    .text-with-price {
                         display: flex;
                         justify-content: space-between;
-                        font-weight: 300;
+                        align-items: center;
+                        margin: 0;
                         margin-bottom: 1em;
                         margin-left: 1em;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
+                        margin-right: 1em;
                         overflow: hidden;
-                        width: calc(100% - 2em); /* Ajustement de la largeur */
-                        span {
-                            margin-right: 1em;
-                            font-weight: 600;
-                            margin-left: 10px;
+
+                        p {
+                            margin: 0;
+                            font-weight: 300;
                             white-space: nowrap;
                             text-overflow: ellipsis;
                             overflow: hidden;
+                            width: calc(100% - 2em);
+
                         }
+
+                        span {
+
+                            margin-left: 10px;
+                            margin-right: 15px;
+                            font-weight: 600;
+
+                        }
+
                     }
+
+
                 }
 
                 .check-container {

@@ -28,19 +28,55 @@
     transform: translateY(0);
   }
 }
-/*.fadinleft {
-    animation: fadeInLeft 2s ease-in-out;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-.fadinright {
-    animation: fadeInRight 2s ease-in-out;
-} */
+@keyframes fadeInBottomLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInBottomRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .fadinbottom {
   animation: fade-in-bottom 2s ease-out;
 }
 
 * {
   font-family: "Roboto", sans-serif;
+}
+
+.fade-in-bottom-left {
+  opacity: 0;
+  animation: fadeInBottomLeft 2s forwards;
+}
+
+.fade-in-bottom-right {
+  opacity: 0;
+  animation: fadeInBottomRight 2s 0.5s forwards;
+}
+
+.fade-in-bottom-left2 {
+  opacity: 0;
+  animation: fadeInBottomLeft 2s 1s forwards;
 }
 
 body {
@@ -539,7 +575,7 @@ footer .contentul li i {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeInRight 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
   background-color: #99E2D0;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
@@ -547,35 +583,36 @@ footer .contentul li i {
   font-size: 1.3em;
 }
 .carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu {
-  flex-grow: 1;
-  overflow: hidden;
+  width: 100%;
 }
 .carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu h4 {
   margin: 0;
   margin-bottom: 5px;
-  display: flex;
   margin-top: 1em;
   margin-left: 1em;
 }
-.carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu p {
-  margin: 0;
+.carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu .text-with-price {
   display: flex;
   justify-content: space-between;
-  font-weight: 300;
+  align-items: center;
+  margin: 0;
   margin-bottom: 1em;
   margin-left: 1em;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  width: calc(100% - 2em); /* Ajustement de la largeur */
-}
-.carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu p span {
   margin-right: 1em;
-  font-weight: 600;
-  margin-left: 10px;
+  overflow: hidden;
+}
+.carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu .text-with-price p {
+  margin: 0;
+  font-weight: 300;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  width: calc(100% - 2em);
+}
+.carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu .text-with-price span {
+  margin-left: 10px;
+  margin-right: 15px;
+  font-weight: 600;
 }
 .carte .bloc-menu .bloc-cardsmenu .cardmenu .check-container {
   width: 0%;
