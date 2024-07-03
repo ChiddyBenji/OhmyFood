@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -56,12 +57,32 @@
     transform: translateX(0);
   }
 }
-.fadinbottom {
-  animation: fade-in-bottom 2s ease-out;
+@keyframes slideInLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
-
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
 * {
   font-family: "Roboto", sans-serif;
+}
+
+.fadinbottom {
+  animation: fade-in-bottom 2s ease-out;
 }
 
 .fade-in-bottom-left {
@@ -566,30 +587,41 @@ footer .contentul li i {
   background-color: #fff;
   border-radius: 16px;
   margin-bottom: 1em;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.3s ease-in-out;
 }
 .carte .bloc-menu .bloc-cardsmenu .cardmenu:hover .text-cardmenu {
   width: 90%;
 }
 .carte .bloc-menu .bloc-cardsmenu .cardmenu:hover .check-container {
   width: 10%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s ease-in-out;
+  animation: slideInLeft 0.3s ease-in-out;
   background-color: #99E2D0;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   color: #fff;
   font-size: 1.3em;
+  opacity: 1;
 }
 .carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu {
   width: 100%;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
 }
 .carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu h4 {
   margin: 0;
   margin-bottom: 5px;
   margin-top: 1em;
   margin-left: 1em;
+  margin-right: 4.9em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .carte .bloc-menu .bloc-cardsmenu .cardmenu .text-cardmenu .text-with-price {
   display: flex;
@@ -616,7 +648,21 @@ footer .contentul li i {
 }
 .carte .bloc-menu .bloc-cardsmenu .cardmenu .check-container {
   width: 0%;
-  display: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideOutRight 0.3s ease-in-out forwards;
+  background-color: #99E2D0;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  color: #fff;
+  font-size: 1.3em;
+  position: absolute;
+  /* Positionné absolument par rapport à .cardmenu */
+  right: 0;
+  opacity: 0;
+  transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .carte button {
   color: white;
